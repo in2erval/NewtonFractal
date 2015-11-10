@@ -1,8 +1,8 @@
 import Data.Complex
 
 limit = 1000000 --Stop after iteration count reaches limit.
-increment :: Double
-increment = 0.1 -- Increment between complex numbers for evaluation
+scale :: Int
+scale = 10 -- Between 0 and 1, there are {scale} steps.
 a = 1 -- For generalised NF.
 
 -- Base function
@@ -21,8 +21,8 @@ newt val iter
 	where func zn = (zn - (a * (p zn)/(p' zn)))
 	
 	
-createMap x y = rowIter (-x) x y (-y)
+createMap x y = rowIter ((-x)*scale) (x*scale) (y*scale) ((-y)*scale)
 rowIter x limX y limY 
-	| x > limX = rowIter (-limX) limX (y - increment) limY
+	| x > limX = rowIter (-limX) limX (y - 1) limY
 	| y < limY = []
-	| otherwise = [x :+ y] ++ rowIter (x + increment) limX y limY
+	| otherwise = [((fromIntegral x) / (fromIntegral scale), (fromIntegral y) / (fromIntegral scale))] ++ rowIter (x + 1) limX y limY
