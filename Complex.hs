@@ -4,7 +4,7 @@ module Complex
 import Data.Complex
 import Data.List
 
-limit = 128 --Stop after iteration count reaches limit.
+limit = 256 --Stop after iteration count reaches limit.
 scale :: Int
 scale = 10 -- Between 0 and 1, there are {scale} steps.
 a =  1 -- For generalised NF.
