@@ -5,7 +5,7 @@ import Data.Complex
 import Complex
 
 
-scl = 1.2
+scl = 2
 xAdj = 1
 colorList = [red, blue, green, yellow, orange, violet, cyan, magenta, azure, aquamarine, chartreuse, rose]
 
