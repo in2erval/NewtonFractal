@@ -12,3 +12,5 @@ nf2.png: p(z) = sin(z), adjusted center to x = -pi/2
 nf3.png: p(z) = z ^ 7 + sin(z)
 
 nf4.png: p(z) = (sin(z))^3
+
+nf5.png: p(z) = (sin(z))^3, rotated 90deg upwards.
