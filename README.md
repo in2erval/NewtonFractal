@@ -9,7 +9,7 @@ nf1.png: p(z) = z ^ 7
 
 nf2.png: p(z) = sin(z), adjusted center to x = -pi/2
 
-nf3.png: p(z) = z ^ 7 + sin(z)
+nf3.png: p(z) = z ^ 7 + sin(z), generalised NF with a = 0.8
 
 nf4.png: p(z) = (sin(z))^3
 
