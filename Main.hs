@@ -5,8 +5,8 @@ import Data.Complex
 import Complex
 
 
-scl = 1/50
-xAdj = pi / 2
+scl = 1.5
+xAdj = -2
 colorList = [red, blue, green, yellow, orange, violet, cyan, magenta, azure, aquamarine, chartreuse, rose]
 
 main :: IO()

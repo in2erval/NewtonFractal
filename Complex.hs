@@ -4,23 +4,25 @@ module Complex
 import Data.Complex
 import Data.List
 
-limit = 512 --Stop after iteration count reaches limit.
+limit = 128 --Stop after iteration count reaches limit.
 scale :: Int
 scale = 10 -- Between 0 and 1, there are {scale} steps.
 a =  1 -- For generalised NF.
-notRoot = 1 :+ 0
+notRoot = 0 :+ 0
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
 --p z = (z ^ 7) + sin z
-p z = sin z
+--p z = sin z
 --p z = (z ^ 7) - 2
+p z = (sin z) ^ 3 - 1
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
 --p' z = 7 * (z ^ 6) + cos z
-p' z = cos z
+--p' z = cos z
 --p' z = 7 * (z ^ 6)
+p' z = 3 * cos z * ((sin z) ^ 2)
 
 newtWithIter :: Complex Double -> Int -> (Int, Complex Double)
 newtWithIter val iter 
