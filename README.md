@@ -6,7 +6,7 @@ A Haskell implementation of the Newton Fractal. Uses Graphics.Gloss.Raster.Field
 
 There is currently no 'interface' that can set the fractal up correctly. The .hs files must be edited to adjust the functions and the values.
 
-Please note that the fractals can take a **very long time** to generate depending on the function and the parameters.
+To generate the image, run **Main.hs** on GHCI and type **"main"**. Please note that the fractals can take a **very long time** to generate depending on the function and the parameters.
 
 
 ## Dependencies
@@ -16,6 +16,7 @@ This is meant to run on GHCI.
 Use cabal to install the packages by opening cmd and typing **"cabal install {package name}"**. Make sure to update cabal first by typing **"cabal update"**.
 
 **gloss**
+
 **gloss-raster** (package will install gloss also if you don't have it yet)
 
 
