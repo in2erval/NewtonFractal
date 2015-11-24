@@ -1,27 +1,28 @@
 module Complex
-(newt, newtWithIter, createFractal, createFractalWithIter, createFractalWithValues, printValues, getRoots) where
+(limit, newt, newtWithIter, createFractal, createFractalWithIter, createFractalWithValues, printValues, getRoots) where
 
 import Data.Complex
 import Data.List
 
 limit = 256 -- Stop after iteration count reaches limit.
-scale = 10 -- Between 0 and 1, there are {scale} steps.
 a =  1 -- For generalised NF.
-notRoot = 0 :+ 0 -- For filtering out non-converging values.
+notRoot = 1 :+ 0 -- For filtering out non-converging values.
+
+scale = 1000 -- Between 0 and 1, there are {scale} steps. This gets used in createMap, which in turn gets used in getRoots.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
 --p z = (z ^ 7) + sin z
---p z = sin z
---p z = (z ^ 7) - 2
-p z = (sin z) ^ 3 - 1
+p z = sin z
+--p z = (sin z) ^ 3 - 2
+--p z = sin (z ^ 3) + sin z
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
 --p' z = 7 * (z ^ 6) + cos z
---p' z = cos z
---p' z = 7 * (z ^ 6)
-p' z = 3 * cos z * ((sin z) ^ 2)
+p' z = cos z
+--p' z = 3 * cos z * ((sin z) ^ 2)
+--p' z = 3 * (z ^ 2) * cos (z ^ 3) + cos z
 
 
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
