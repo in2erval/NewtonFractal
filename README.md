@@ -15,9 +15,8 @@ This is meant to run on GHCI.
 
 Use cabal to install the packages by opening cmd and typing **"cabal install {package name}"**. Make sure to update cabal first by typing **"cabal update"**.
 
-**gloss**
-
-**gloss-raster** (package will install gloss also if you don't have it yet)
+* **gloss**
+* **gloss-raster** (package will install gloss also if you don't have it yet)
 
 
 ## How it works
