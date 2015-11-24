@@ -37,8 +37,7 @@ Complex.hs:
 * **limit** - Max number of newton method iteration. Increasing this will potentially allow more roots to be found, but will increase the time taken to generate the image.
 * **scale** - For use in complex plane generation. Increasing this will allow more roots to be found, but will increase the time *significantly*.
 * **a** - A complex number for the generalised newton method where the default is 1. Changing this will yield interesting results, but please use printValues first to make sure it actually returns proper values.
-* **notRoot** - For filtering out non-convergeant values. Please make sure the function does not have this number as a root.
-
+* **notRoot** - For filtering out non-convergent values. Please make sure the function does not have this number as a root.
 * **p z** - Base function. You can safely use polynomials and trigs, but exponentials (e.g. e^z) are likely not going to work.
 * **p' z** - Derivative function. This program *will not* work out what the derivative is. Please enter the appropriate derivative of the base function.
 
