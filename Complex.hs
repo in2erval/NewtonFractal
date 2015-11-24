@@ -5,24 +5,18 @@ import Data.Complex
 import Data.List
 
 limit = 256 -- Stop after iteration count reaches limit.
-a =  1 -- For generalised NF.
+scale = 100 -- Between 0 and 1, there are {scale} steps. This gets used in createMap, which in turn gets used in getRoots.
+a =  1 :+ 0 -- For generalised NF.
 notRoot = 1 :+ 0 -- For filtering out non-converging values.
 
-scale = 1000 -- Between 0 and 1, there are {scale} steps. This gets used in createMap, which in turn gets used in getRoots.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
---p z = (z ^ 7) + sin z
-p z = sin z
---p z = (sin z) ^ 3 - 2
---p z = sin (z ^ 3) + sin z
+p z = sin ((z ^ 9) + 2)
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
---p' z = 7 * (z ^ 6) + cos z
-p' z = cos z
---p' z = 3 * cos z * ((sin z) ^ 2)
---p' z = 3 * (z ^ 2) * cos (z ^ 3) + cos z
+p' z = 9 * (z ^ 8) * cos ((z ^ 9) + 2)
 
 
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
@@ -54,11 +48,11 @@ newtWithIter val iter
 --           |
 --           |
 
-createMap (x, y) = rowIter ((-x)*scale) (x*scale) (y*scale) ((-y)*scale)  -- Generates the plane
-rowIter x limX y limY 
-    | x > limX = rowIter (-limX) limX (y - 1) limY
+createMap (x, y) = rowIter (max x y) ((-x)*scale) (x*scale) (y*scale) ((-y)*scale)  -- Generates the plane
+rowIter p x limX y limY 
+    | x > limX = rowIter p (-limX) limX (y - p) limY
     | y < limY = []
-    | otherwise = [((fromIntegral x) / (fromIntegral scale), (fromIntegral y) / (fromIntegral scale))] ++ rowIter (x + 1) limX y limY -- Weird workaround with Int to prevent stupid float inaccuracies.
+    | otherwise = [((fromIntegral x) / (fromIntegral scale), (fromIntegral y) / (fromIntegral scale))] ++ rowIter p (x + p) limX y limY -- Weird workaround with Int to prevent stupid float inaccuracies.
 
 pairToComplex (a, b) = a :+ b -- For each value in the plane, represent it as a complex number.
 

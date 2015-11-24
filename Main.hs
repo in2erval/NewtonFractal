@@ -5,8 +5,8 @@ import Data.Complex
 import Complex
 
 
-scl = 1/2 -- Zoom level of the generated fractal. Higher values zooms out, values less than 1 zooms in.
-xAdj = pi/2 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
+scl = 2 -- Zoom level of the generated fractal. Higher values zooms out, values less than 1 zooms in.
+xAdj = 0 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
 yAdj = 0 -- Same as xAdj, but vertically.
 
 -- Self-defined colours - blue-themed.
@@ -30,9 +30,9 @@ cadet = makeColorI 152 245 255 255
 turquiose = makeColorI 0 229 238 255
 mangblue = makeColorI 3 168 158 255
 
-nonconverge = makeColorI 190 190 190 255
+nonconverge = makeColorI 140 140 140 255
 
-colorList = [dodger, navy, midnight, cobalt, royal1, royal2, royal3, royal4, cfblue, steel, steelblue1, steelblue2, skyblue1, skyblue2, deepsky, peacock, cadet, turquiose, mangblue] -- Colour list to match with different roots.
+colourList = [dodger, navy, midnight, cobalt, royal1, royal2, royal3, royal4, cfblue, steel, steelblue1, steelblue2, skyblue1, skyblue2, deepsky, peacock, cadet, turquiose, mangblue] -- Colour list to match with different roots.
 
 
 
@@ -47,10 +47,10 @@ frame (a, b) = f (newtWithIter (g ((scl * a) - xAdj) :+ g ((scl * b) - yAdj)) 0)
     g = float2Double -- The base type is (Complex Double) so needs to convert from Float to Double.
 
 
-roots = zip ((concat . repeat) colorList) (getRoots (ceiling scl + 1, ceiling scl + 1)) -- Pairs each found root with a colour. getRoots must be bigger than scale.
+roots = zip ((concat . repeat) colourList) (getRoots (ceiling scl + 1, ceiling scl + 1)) -- Pairs each found root with a colour. getRoots must be bigger than scale.
 
-dim' 0 color = color -- Repeated application of dim. 
-dim' n color = dim' (n `div` 2) (dim color) -- Theoretically it dims the colour log2(iter) times.
+dim' 0 colour = colour -- Repeated application of dim. 
+dim' n colour = dim' (n `div` 2) (dim colour) -- Theoretically it dims the colour log2(iter) times.
 
-bright' 0 color = color -- Same as dim', but using bright.
-bright' n color = bright' (n `div` 2) (bright color)
+bright' 0 colour = colour -- Same as dim', but using bright.
+bright' n colour = bright' (n `div` 2) (bright colour)
