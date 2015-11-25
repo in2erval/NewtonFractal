@@ -14,6 +14,8 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -30,6 +32,8 @@ Main.hs:
     scl = 0.42
     xAdj = pi/2
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -46,6 +50,8 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main2
 }
 
 
@@ -62,6 +68,8 @@ Main.hs:
     scl = 1
     xAdj = 0
     yAdj = 0
+
+    run::main1
 }
 
 nf4_2 {
@@ -77,6 +85,8 @@ Main.hs:
     scl = 1/2
     xAdj = pi/2
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -93,6 +103,8 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -109,6 +121,8 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -125,6 +139,8 @@ Main.hs:
     scl = 2
     xAdj = pi/2
     yAdj = 0
+
+    run::main1
 }
 
 nf7_2 {
@@ -140,6 +156,8 @@ Main.hs:
     scl = 1/2
     xAdj = pi/2
     yAdj = 0
+
+    run::main1
 }
 
 
@@ -156,6 +174,8 @@ Main.hs:
     scl = 1/2
     xAdj = (-3.5)
     yAdj = (-3.5)
+
+    run::main1
 }
 
 
@@ -172,6 +192,8 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main2
 }
 
 
@@ -188,4 +210,6 @@ Main.hs:
     scl = 2
     xAdj = 0
     yAdj = 0
+
+    run::main1
 }
