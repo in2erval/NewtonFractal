@@ -11,7 +11,7 @@ To generate the image, run **Main.hs** on GHCI and type **"main1"** for colourin
 Once the picture has been generated, you can use the mouse to move the picture around, zoom in/out with the scroll wheel, and use arrows to shift the picture around the viewport. Note that zooming in will not allow you to see the fractal in more detail (i.e. it will be pixellated).
 
 
-## Dependencies
+## Dependencies 
 
 This is meant to run on GHCI.
 
