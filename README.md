@@ -6,7 +6,7 @@ A Haskell implementation of the Newton Fractal. Uses Graphics.Gloss.Raster.Field
 
 There is currently no 'interface' that can customise the fractals. The .hs files must be edited to adjust the functions and the values. Also, because this is using gloss, there is currently no way to "save" the generated image as a bitmap file. The images in the FractalExamples folder are all screenshots taken at 1000x1000 resolution.
 
-To generate the image, run **Main.hs** on GHCI and type **"main"**. Please note that the fractals can take a **very long time** to generate depending on the function and the parameters.
+To generate the image, run **Main.hs** on GHCI and type **"main1"** for colouring based on roots, and **"main2"** for colouring based on iteration count. Please note that the fractals can take a **very long time** to generate depending on the function and the parameters. Colouring by iteration count tends to take a shorter amount of time to generate.
 
 Once the picture has been generated, you can use the mouse to move the picture around, zoom in/out with the scroll wheel, and use arrows to shift the picture around the viewport. Note that zooming in will not allow you to see the fractal in more detail (i.e. it will be pixellated).
 
