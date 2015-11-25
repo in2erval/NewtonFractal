@@ -18,7 +18,6 @@ p z = sin z
 p' :: (RealFloat a) => Complex a -> Complex a
 p' z = cos z
 
-
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
 
 newt :: Complex Double -> Int -> Complex Double
