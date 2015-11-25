@@ -12,7 +12,7 @@ notRoot = 1 :+ 0 -- For filtering out non-converging values.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
-p z = sin z 
+p z = sin z + 1
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
