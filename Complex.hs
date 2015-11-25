@@ -12,11 +12,11 @@ notRoot = 1 :+ 0 -- For filtering out non-converging values.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
-p z = (sin z) / (z ^ 4)
+p z = sin z
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
-p' z = ((z * cos z) - (4 * sin z)) / (z ^ 5)
+p' z = cos z
 
 
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
@@ -48,22 +48,23 @@ newtWithIter val iter
 --           |
 --           |
 
-createMap (x, y) = rowIter (max x y) ((-x)*scale) (x*scale) (y*scale) ((-y)*scale)  -- Generates the plane
-rowIter p x limX y limY 
-    | x > limX = rowIter p (-limX) limX (y - p) limY
+createMap :: (Int, Int) -> (Int, Int) -> [(Double, Double)]
+createMap (x, y) (adjX, adjY) = rowIter (max x y) (adjX * scale, adjY * scale) (((-x)+adjX)*scale) ((x+adjX)*scale) ((y+adjY)*scale) (((-y)+adjY)*scale)  -- Generates the plane
+rowIter p (adjX,adjY) x limX y limY 
+    | x > limX = rowIter p (adjX,adjY) (-(limX - adjX) + adjX) limX (y - p) limY
     | y < limY = []
-    | otherwise = [((fromIntegral x) / (fromIntegral scale), (fromIntegral y) / (fromIntegral scale))] ++ rowIter p (x + p) limX y limY -- Weird workaround with Int to prevent stupid float inaccuracies.
+    | otherwise = [((fromIntegral x) / (fromIntegral scale), (fromIntegral y) / (fromIntegral scale))] ++ rowIter p (adjX,adjY) (x + p) limX y limY -- Weird workaround with Int to prevent stupid float inaccuracies.
 
 pairToComplex (a, b) = a :+ b -- For each value in the plane, represent it as a complex number.
 
-createFractal (a, b) = map (`newt` 0) (map pairToComplex $ createMap (a, b)) -- Apply newton method to all the values in the complex plane.
-createFractalWithIter (a, b) = map (`newtWithIter` 0) (map pairToComplex $ createMap (a, b)) -- Same as above, but using newtWithIter instead.
-createFractalWithValues (a, b) = zip (map (`newt` 0) values) values -- Similar to createFractal, but returns a list of (root, initial value).
-    where values = (map pairToComplex $ createMap (a, b))
+createFractal (a, b) (x, y) = map (`newt` 0) (map pairToComplex $ createMap (a, b) (x, y)) -- Apply newton method to all the values in the complex plane.
+createFractalWithIter (a, b) (x, y) = map (`newtWithIter` 0) (map pairToComplex $ createMap (a, b) (x, y)) -- Same as above, but using newtWithIter instead.
+createFractalWithValues (a, b) (x, y) = zip (map (`newt` 0) values) values -- Similar to createFractal, but returns a list of (root, initial value).
+    where values = (map pairToComplex $ createMap (a, b) (x, y))
 
 
 
-getRoots (a, b) = ((filter (/= notRoot)) . nub . (map head) . group . createFractal) (a, b) -- From a given (a, b) field, finds all the different roots that the values converge to.
+getRoots (a, b) (x, y) = ((filter (/= notRoot)) . nub . (map head) . group . (`createFractal` (x, y))) (a, b) -- From a given (a, b) field, finds all the different roots that the values converge to.
 
-printValues (a, b) = putStr $ unlines $ zipWith (++) (map (f . show) $ map pairToComplex $ createMap (a, b)) (map show $ createFractalWithIter (a, b)) -- Print the values in ghc to make it more readable.
+printValues (a, b) (x, y) = putStr $ unlines $ zipWith (++) (map (f . show) $ map pairToComplex $ createMap (a, b) (x, y)) (map show $ createFractalWithIter (a, b) (x, y)) -- Print the values in ghc to make it more readable.
    where f str = take 20 (str ++ repeat '.')

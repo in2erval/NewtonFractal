@@ -36,7 +36,7 @@ Complex.hs:
 
 * **limit** - Max number of newton method iteration. Increasing this will potentially allow more roots to be found, but will increase the time taken to generate the image.
 * **scale** - For use in complex plane generation. Increasing this will allow more roots to be found, but will increase the time *significantly*.
-* **a** - A complex number for the generalised newton method where the default is 1. Changing this will yield interesting results, but please use printValues first to make sure it actually returns proper values.
+* **a** - A complex number for the generalised newton method where the default is 1. Changing this could yield interesting results, but it can break the fractal very easily. Please use printValues first to make sure it actually returns proper values.
 * **notRoot** - For filtering out non-convergent values. Please make sure the function does not have this number as a root.
 * **p z** - Base function. You can safely use polynomials and trigs, but exponentials (e.g. e^z) are likely not going to work.
 * **p' z** - Derivative function. This program *will not* work out what the derivative is. Please enter the appropriate derivative of the base function.
@@ -68,14 +68,16 @@ Fractal Examples are all generated using ghci and Main.hs:
 
 * nf5.png: p(z) = (1+i)cosh(z^2)
 
-* nf6_1.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2
+* nf6.png: p(z) = cosh(sin(z))
 
-* nf6_2.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2, zoomed in
+* nf7_1.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2
 
-* nf7.png: p(z) = (sin(z)) / (z^4)
+* nf7_2.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2, zoomed in
 
-* nf8.png: p(z) = sin(z^3) + sin(z)
+* nf8.png: p(z) = sinh(z ^ 2)/cosh(z) + z
 
-* nf9.png: p(z) = sin((z^4) + 2), generalised NF with a = 1 + 0.2i
+* nf9.png: p(z) = sin(z^3) + sin(z)
+
+* nf10.png: p(z) = sin((z^4) + 2), generalised NF with a = 1 + 0.2i
 
 For the exact parameters of each examples, look at Parameters.txt in the folder.
