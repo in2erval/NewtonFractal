@@ -35,9 +35,12 @@ scl = 2 -- Zoom level of the generated fractal. Higher values zooms out, values 
 xAdj = 0 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
 yAdj = 0 -- Same as xAdj, but vertically.
 
+windowSize = 1000
+pixelSize = 1
+
 
 main :: IO()
-main = display (InWindow "Newton Fractal" (1000,1000) (0,0)) white (makePicture 1000 1000 1 1 frame) -- Opens a 1000x1000 window at (400,0) position, with 1 pixel representing each point.
+main = display (InWindow "Newton Fractal" (windowSize, windowSize) (0,0)) white (makePicture windowSize windowSize pixelSize pixelSize frame) -- Opens a 1000x1000 window at (400,0) position, with 1 pixel representing each point.
 
 frame :: Point -> Color
 frame (a, b) = f (newtWithIter (g ((scl * a) - xAdj) :+ g ((scl * b) - yAdj)) 0) -- For each (a,b) point, represent it as a complex number and apply newtWithIter to it.

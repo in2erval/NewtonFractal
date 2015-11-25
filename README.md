@@ -46,6 +46,8 @@ Main.hs:
 * **scl** - Zoom level. Higher values zoom out, lower values zoom in. Must be above 0.
 * **xAdj** - Horizontal adjustment. Positive values shifts the image to the right, negatives to the left.
 * **yAdj** - Vertical adjustment. Positive values shifts the image down, negatives up.
+* **windowSize** - The size of the fractal image - the window size will always be a square. Only integers are allowed.
+* **pixelSize** - Size of each computed point on the image. Increasing this will make the picture blockier and pixellated, but generate faster.
 
 You can also define your own colours and change the colourList.
 
