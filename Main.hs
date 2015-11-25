@@ -41,7 +41,7 @@ pixelSize = 1
 
 
 main :: IO()
-main = display (InWindow "Newton Fractal" (windowSize, windowSize) (0,0)) white (makePicture windowSize windowSize pixelSize pixelSize frame) -- Opens a 1000x1000 window at (400,0) position, with 1 pixel representing each point.
+main = display (InWindow "Newton Fractal" (windowSize, windowSize) (0,0)) white (makePicture windowSize windowSize pixelSize pixelSize frame) -- Opens a window at (400,0) position. Window size and pixel size are adjusted by variables above.
 
 frame :: Point -> Color
 frame (a, b) = f (newtWithIter (g ((scl * a) - xAdj) :+ g ((scl * b) - yAdj)) 0) -- For each (a,b) point, represent it as a complex number and apply newtWithIter to it.
