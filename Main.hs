@@ -36,7 +36,7 @@ scl = 1/2 -- Zoom level of the generated fractal. Higher values zooms out, value
 xAdj = pi/2 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
 yAdj = 0 -- Same as xAdj, but vertically.
 
-windowSize = 1000
+windowSize = 500
 pixelSize = 1
 
 

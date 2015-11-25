@@ -1,3 +1,6 @@
+All images generated with windowSize = 1000 and pixelSize = 1.
+
+
 nf1 {
 Complex.hs:
     limit = 256
