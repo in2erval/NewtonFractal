@@ -31,8 +31,8 @@ nonconverge = makeColorI 140 140 140 255
 colourList = [dodger, navy, midnight, cobalt, royal1, royal2, royal3, royal4, cfblue, steel, steelblue1, steelblue2, skyblue1, skyblue2, deepsky, peacock, cadet, turquiose, mangblue] -- Colour list to match with different roots.
 
 
-scl = 1/2 -- Zoom level of the generated fractal. Higher values zooms out, values less than 1 zooms in.
-xAdj = pi/2 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
+scl = 2 -- Zoom level of the generated fractal. Higher values zooms out, values less than 1 zooms in.
+xAdj = 0 -- Translate the picture horizontally. Positive values will move it to the right, Negatives to the left.
 yAdj = 0 -- Same as xAdj, but vertically.
 
 

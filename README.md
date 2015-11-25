@@ -58,16 +58,22 @@ Fractal Examples are all generated using ghci and Main.hs:
 
 * nf2.png: p(z) = sin(z), adjusted center to x = -pi/2
 
-* nf3.png: p(z) = z^7 + sin(z), generalised NF with a = 0.8
+* nf3.png: p(z) = z^7 + sin(z)
 
-* nf4.png: p(z) = (sin(z))^3
+* nf4_1.png: p(z) = (sin(z))^3 - 2
 
-* nf5.png: p(z) = (sin(z))^5 - 2
+* nf4_2.png: p(z) = (sin(z))^3 - 2, adjusted center to x = -pi/2, zoomed in
 
-* nf6.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2
+* nf5.png: p(z) = (1+i)cosh(z^2)
 
-* nf7.png: p(z) = (sin(z))^3 - 2
+* nf6_1.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2
+
+* nf6_2.png: p(z) = (sin(z))^5 - 4sin(z), adjusted center to x = -pi/2, zoomed in
+
+* nf7.png: p(z) = (sin(z)) / (z^4)
 
 * nf8.png: p(z) = sin(z^3) + sin(z)
+
+* nf9.png: p(z) = sin((z^4) + 2), generalised NF with a = 1 + 0.2i
 
 For the exact parameters of each examples, look at Parameters.txt in the folder.

@@ -24,7 +24,7 @@ Complex.hs:
     p' z = cos z
 
 Main.hs:
-    scl = 0.35
+    scl = 0.42
     xAdj = pi/2
     yAdj = 0
 }
@@ -34,7 +34,7 @@ nf3 {
 Complex.hs:
     limit = 256
     scale = 100
-    a = 0.95
+    a = 1
 
     p z = (z ^ 7) + sin z
     p' z = (7 * (z ^ 6)) + cos z
@@ -46,7 +46,7 @@ Main.hs:
 }
 
 
-nf4 {
+nf4_1 {
 Complex.hs:
     limit = 256
     scale = 100
@@ -56,8 +56,23 @@ Complex.hs:
     p' z = 3 * cos z * ((sin z) ^ 2)
 
 Main.hs:
-    scl = 1.5
+    scl = 1/2
     xAdj = pi/2
+    yAdj = 0
+}
+
+nf4_2 {
+Complex.hs:
+    limit = 256
+    scale = 100
+    a = 1
+
+    p z = ((sin z) ^ 3) - 2
+    p' z = 3 * cos z * ((sin z) ^ 2)
+
+Main.hs:
+    scl = 1
+    xAdj = 0
     yAdj = 0
 }
 
@@ -68,8 +83,8 @@ Complex.hs:
     scale = 100
     a = 1
 
-    p z = ((sin z) ^ 5) - 2
-    p' z = 5 * cos z * ((sin z) ^ 4)
+    p z = (1 :+ 1) * cosh (z ^ 2)
+    p' z = (2 :+ 2) * z * sinh (z ^ 2)
 
 Main.hs:
     scl = 2
@@ -109,34 +124,18 @@ Main.hs:
 }
 
 
-
-nf7_1 {
+nf7 {
 Complex.hs:
     limit = 256
     scale = 100
     a = 1
 
-    p z = ((sin z) ^ 3) - 2
-    p' z = 3 * cos z * ((sin z) ^ 2)
+    p z = (sin z) / (z ^ 4)
+    p' z = ((z * cos z) - (4 * sin z)) / (z ^ 5)
 
 Main.hs:
-    scl = 1
+    scl = 2
     xAdj = 0
-    yAdj = 0
-}
-
-nf7_2 {
-Complex.hs:
-    limit = 256
-    scale = 100
-    a = 1
-
-    p z = ((sin z) ^ 3) - 2
-    p' z = 3 * cos z * ((sin z) ^ 2)
-
-Main.hs:
-    scl = 1/2
-    xAdj = pi/2
     yAdj = 0
 }
 

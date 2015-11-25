@@ -12,11 +12,11 @@ notRoot = 1 :+ 0 -- For filtering out non-converging values.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
-p z = sin z
+p z = (sin z) / (z ^ 4)
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
-p' z = cos z
+p' z = ((z * cos z) - (4 * sin z)) / (z ^ 5)
 
 
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
