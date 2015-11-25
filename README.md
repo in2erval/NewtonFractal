@@ -2,7 +2,7 @@
 
 ## Abstract
 
-A Haskell implementation of the Newton Fractal. Uses Graphics.Gloss.Raster.Field to emulate the complex plane, and applies the newton method to a predetermined function (also using its derivative) to work out which root it converges to, and colours it accordingly.
+A Haskell implementation of the [Newton Fractal](https://en.wikipedia.org/wiki/Newton_fractal). Uses Graphics.Gloss.Raster.Field to emulate the complex plane, and applies the newton method to a predetermined function (also using its derivative) to work out which root it converges to, and colours it accordingly.
 
 There is currently no 'interface' that can customise the fractals. The .hs files must be edited to adjust the functions and the values. Also, because this is using gloss, there is currently no way to "save" the generated image as a bitmap file. The images in the FractalExamples folder are all screenshots taken at 1000x1000 resolution.
 
