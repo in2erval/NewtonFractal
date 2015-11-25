@@ -6,7 +6,7 @@ A Haskell implementation of the Newton Fractal. Uses Graphics.Gloss.Raster.Field
 
 There is currently no 'interface' that can set the fractal up correctly. The .hs files must be edited to adjust the functions and the values.
 
-Please note that the fractals can take a **very long time** to generate depending on the function and the parameters.
+To generate the image, run **Main.hs** on GHCI and type **"main"**. Please note that the fractals can take a **very long time** to generate depending on the function and the parameters.
 
 
 ## Dependencies
@@ -15,8 +15,8 @@ This is meant to run on GHCI.
 
 Use cabal to install the packages by opening cmd and typing **"cabal install {package name}"**. Make sure to update cabal first by typing **"cabal update"**.
 
-**gloss**
-**gloss-raster** (package will install gloss also if you don't have it yet)
+* **gloss**
+* **gloss-raster** (package will install gloss also if you don't have it yet)
 
 
 ## How it works
@@ -37,8 +37,7 @@ Complex.hs:
 * **limit** - Max number of newton method iteration. Increasing this will potentially allow more roots to be found, but will increase the time taken to generate the image.
 * **scale** - For use in complex plane generation. Increasing this will allow more roots to be found, but will increase the time *significantly*.
 * **a** - A complex number for the generalised newton method where the default is 1. Changing this will yield interesting results, but please use printValues first to make sure it actually returns proper values.
-* **notRoot** - For filtering out non-convergeant values. Please make sure the function does not have this number as a root.
-
+* **notRoot** - For filtering out non-convergent values. Please make sure the function does not have this number as a root.
 * **p z** - Base function. You can safely use polynomials and trigs, but exponentials (e.g. e^z) are likely not going to work.
 * **p' z** - Derivative function. This program *will not* work out what the derivative is. Please enter the appropriate derivative of the base function.
 
