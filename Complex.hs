@@ -12,11 +12,11 @@ notRoot = 1 :+ 0 -- For filtering out non-converging values.
 
 -- Base function
 p :: (RealFloat a) => Complex a -> Complex a
-p z = sin ((z ^ 9) + 2)
+p z = sin z
 
 -- Derivative
 p' :: (RealFloat a) => Complex a -> Complex a
-p' z = 9 * (z ^ 8) * cos ((z ^ 9) + 2)
+p' z = cos z
 
 
 func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
@@ -24,7 +24,7 @@ func zn = (zn - (a * (p zn)/(p' zn))) -- Newton method.
 newt :: Complex Double -> Int -> Complex Double
 newt val iter 
     | val == func val   = val -- If input value equals func(value), then it reached a root.
-    | iter == limit     = notRoot -- Iteration count reached limit, so we regard it as non-convergeant.
+    | iter == limit     = notRoot -- Iteration count reached limit, so we regard it as non-convergent.
     | otherwise         = newt (func val) (iter + 1) -- Iterate again, with new value and iteration + 1.
 
 newtWithIter :: Complex Double -> Int -> (Int, Complex Double) -- Same function as newt, but returns (iter, val) instead.
